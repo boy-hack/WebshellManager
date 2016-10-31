@@ -1,4 +1,5 @@
 ## WebshellManager
+
 > 一款无聊的时候用PHP写的一句话WEB端管理工具 名字叫w8ay好了
 
 ## 介绍
@@ -14,6 +15,8 @@
 
 ## 安装
 
-导入文件中的 w8_webshell.sql
-按注释修改 config.php
-安装成功
+导入文件中的 w8_webshell.sql  
+
+按注释修改 config.php  
+
+安装成功  
