@@ -29,18 +29,28 @@
         </div>
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
-              <option value="option1">所有类别</option>
-              <option value="option2">IT业界</option>
-              <option value="option3">数码产品</option>
-              <option value="option3">笔记本电脑</option>
-              <option value="option3">平板电脑</option>
-              <option value="option3">只能手机</option>
-              <option value="option3">超极本</option>
+            <select data-am-selected="{btnSize: 'sm'}" style="display: none;" onchange="selectSort(this);">
+              <option value="<?php echo $rootfile; ?>">本程序目录</option>
+              <option value="C:/">C盘</option>
+              <option value="D:/">D盘</option>
+              <option value="E:/">E盘</option>
+              <option value="F:/">F盘</option>
+              <option value="C:/Documents and Settings/All Users/「开始」菜单/程序/启动">启动项</option>
+              <option value="C:/Documents and Settings/All Users/Start Menu/Programs/Startup">启动项(英)</option>
+              <option value="C:/RECYCLER">回收站</option>
+              <option value="C:/Program Files">Programs</option>
+              <option value="/etc">etc</option>
+              <option value="/home">home</option>
+              <option value="/usr/local">Local</option>
+              <option value="/tmp">Temp</option>
             </select>
           </div>
         </div>
-        
+        <script>
+          function selectSort(type){
+            window.location.href = "index.php?action=file&gid=<?php echo $info["id"]; ?>&path=" + type.value;
+          }
+          </script>
       </div>
       <div class="am-g">
 	 
