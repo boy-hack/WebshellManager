@@ -8,6 +8,5 @@
 <script src="<?php echo CSS_Path; ?>assets/js/jquery.min.js"></script>
 <!--<![endif]-->
 <script src="<?php echo CSS_Path; ?>assets/js/amazeui.min.js"></script>
-<script src="<?php echo CSS_Path; ?>assets/js/app.js"></script>
 </body>
 </html>

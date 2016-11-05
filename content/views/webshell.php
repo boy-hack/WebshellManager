@@ -1,9 +1,7 @@
   <!-- content start -->
   <div class="admin-content">
     <div class="admin-content-body">
-      <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Webshell</strong> / <small>一句话管理</small></div>
-      </div>
+      <?php echo mianbao(); ?>
     
       <hr>
           <div class="am-g">

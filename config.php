@@ -11,4 +11,6 @@ define('DB_NAME','webshell');
 define('DB_PREFIX','w8_');
 
 //WEB一句话分页条数
-define("perpage_num",'2');
+define("perpage_num",'20');
+//修改某个ID为管理员只需要在 w8_user表把admin设置为1即可 ps:管理员好像只能发邀请码 = -
+

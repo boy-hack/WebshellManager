@@ -46,7 +46,7 @@ class Webshell_Model {
 			$Item[] = "$key='$data'";
 		}
 		$upStr = implode(',', $Item);
-		$this->db->query("UPDATE " . DB_PREFIX . "webshell SET $upStr WHERE id=$blogId");
+		$this->db->query("UPDATE " . DB_PREFIX . "webshell SET $upStr WHERE id=$blogId and uid=".UID);
 		//$this->db->query("UPDATE " . DB_PREFIX . "blog SET $upStr WHERE gid=$blogId $author");
 	}
 
@@ -107,6 +107,7 @@ class Webshell_Model {
 	 */
 	function delete($blogId) {
 		//$author = ROLE == ROLE_ADMIN ? '' : 'and author=' . UID;
+		$author = "and uid=".UID;
 		$this->db->query("DELETE FROM " . DB_PREFIX . "webshell where id=$blogId $author");
 		if ($this->db->affected_rows() < 1) {
 			wMsg('权限不足！', './');
@@ -120,7 +121,8 @@ class Webshell_Model {
 	 */
 	function getshell($blogId) {
 		//$author = ROLE == ROLE_ADMIN ? '' : 'and author=' . UID;
-		$res =$this->db->query("SELECT * FROM " . DB_PREFIX . "webshell where id = $blogId");
+		$author = "and uid=".UID;
+		$res =$this->db->query("SELECT * FROM " . DB_PREFIX . "webshell where id = $blogId $author");
 		$row = $this->db->fetch_array($res);
 		return $row;
 		

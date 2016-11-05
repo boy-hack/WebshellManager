@@ -1,8 +1,10 @@
 w8ay webshell Web端管理工具
 目前仅支持PHP类型一句话木马
 
-function:
-web端操作webshell一句话 完成了文件管理
+这应该算是第二版了，第一版只是抓了菜刀的包，这一个版本可以自行组合发送的指令
+在 include\model\PHPShell_Build_mothod.php 中可以自行设置发送的参数，会自动完成加密
+
+完成了多用户系统，可多用户注册登陆管理webshell
 
 
   
@@ -11,8 +13,6 @@ bug*
 
 
 未完成功能：
-	一句话管理 =>    
-	文件管理 => 新建目录
 	面包屑导航
 
 已完成功能：
@@ -35,6 +35,7 @@ w8_webshell{
 	extra, 备注
 	type,类型
 	time,创建时间
+	uid,用户对应ID
 }
 
 w8_cache{ 
@@ -44,7 +45,8 @@ w8_cache{
 }
 
 w8_user{
-	username,
+	id,
 	password,
-	email
+	email,
+	admin, //是否为管理员
 }

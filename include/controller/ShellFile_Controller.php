@@ -20,7 +20,7 @@ class ShellFile_Controller {
 			if(isset($webroot)){
 				$rootfile = $webroot["WebRoot"];
 				$webfile = FileSort($Shell_Model->GetWebDiskFileList($rootfile));
-				include View::getView('file');
+				//include View::getView('file');
 			}else{
 				wmsg("连接失败");
 			}

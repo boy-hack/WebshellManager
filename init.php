@@ -8,6 +8,7 @@
  
  //error_reporting(7);
 ob_start();
+session_start();
 header('Content-Type: text/html; charset=UTF-8');
 
 define('W8AY_ROOT', dirname(__FILE__));
@@ -18,5 +19,20 @@ define('CSS_Path',"./content/views/");
 doStripslashes();
 
 $action = isset($_GET['action']) ? addslashes($_GET['action']) : '';
-//Login_Controller::Display();
-//$user = $_SESSION["user"];
+
+$user_id = $_SESSION["uid"];
+$email = $_SESSION["email"];
+
+if(empty($user_id)||empty($email)){
+	if($action=="reg"){
+		Login_Controller::DisplayReg();
+	}else{
+		Login_Controller::Display();
+	}
+}else{
+	define("UID",$user_id);
+}
+
+
+
+

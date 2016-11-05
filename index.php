@@ -9,7 +9,8 @@
 
  $Webshell_Model = new Webshell_Model();
  $web_title = "w8ay WebShell在线管理系统";
- $num = $Webshell_Model->getLogNum();
+ $num = $Webshell_Model->getLogNum('where uid='.UID);
+
  include View::getView('header');
 
  $gid = $_GET["gid"];
@@ -28,7 +29,7 @@
  	case 'filedel':ShellFile_Controller::Display_del($gid,$path);break;
  	//其他操作
  	case 'help':Help_Controller::Display();break;
- 	//case 'login':Login_Controller::Display();break;
+ 	case 'logout':Login_Controller::Logout();break;
  	default:wmsg("错误的指令！");break;
  }
  include View::getView('footer');

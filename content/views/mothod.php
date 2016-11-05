@@ -32,3 +32,16 @@ function File_Size($size)
 	else $size = $size . ' B';
 	return $size;
 }
+
+function mianbao($action="",$gid="",$filepath='')
+{	
+	echo '<div class="am-cf am-padding am-padding-bottom-0">
+	<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><a href="index.php">Webshell</a></strong> /'; 
+	if($action=="file"){
+		echo '<small><a href="index.php?action=file&gid='.$gid.'">文件管理</a></small>';
+		
+	}else{
+		echo '<small>一句话管理</small>';
+	}
+    echo '</div></div>';
+}

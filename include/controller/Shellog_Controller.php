@@ -15,10 +15,11 @@ class Shellog_Controller {
 		$page = $_GET["page"];
 		if(empty($page))$page=1;
 		$index_lognum = perpage_num;
+		$author = "and uid=".UID;
 		if(isset($keyword)){
 			$keyword = addslashes(htmlspecialchars(urldecode($keyword)));
 			$keyword = str_replace(array('%', '_'), array('\%', '\_'), $keyword);
-			$sqlSegment = "where extra like '%{$keyword}%' or url like '%{$keyword}%' order by time desc";
+			$sqlSegment = "where extra like '%{$keyword}%' or url like '%{$keyword}%' $author order by time desc";
 			$lognum = $Webshell_Model->getLogNum($sqlSegment);
 			$total_pages = ceil($lognum / $index_lognum);
 			if ($page > $total_pages) {
@@ -30,7 +31,7 @@ class Shellog_Controller {
 		}elseif (isset($type)) {
 			$type = strtoupper(addslashes(htmlspecialchars(urldecode($type))));
 			$type = str_replace(array('%', '_'), array('\%', '\_'), $type);
-			$sqlSegment = "where type = '$type' order by time desc";
+			$sqlSegment = "where type = '$type' $author order by time desc";
 			$lognum = $Webshell_Model->getLogNum($sqlSegment);
 			$total_pages = ceil($lognum / $index_lognum);
 			if ($page > $total_pages) {
@@ -40,13 +41,14 @@ class Shellog_Controller {
 			$logs = $Webshell_Model->getLogsForAdmin($sqlSegment,$page);
 			$page_url = pagination($lognum, $index_lognum, $page, $pageurl);
 		}else{
+			$sqlSegment = 'where uid='.UID;
 			$lognum = $Webshell_Model->getLogNum($sqlSegment);
 			$total_pages = ceil($lognum / $index_lognum);
 			if ($page > $total_pages) {
 			    $page = $total_pages;
 			}
 			$pageurl = 'index.php?&page=';
-			$logs = $Webshell_Model->getLogsForAdmin('',$page);
+			$logs = $Webshell_Model->getLogsForAdmin($sqlSegment,$page);
 			$page_url = pagination($lognum, $index_lognum, $page, $pageurl);
 		}
 		require_once(View::getView('webshell'));
@@ -60,6 +62,7 @@ class Shellog_Controller {
 				$_POST["options"] = "ASP";
 			}
 			$logData = array(
+					"uid" => UID,
 					"url" => htmlspecialchars($_POST["add_url"]),
 					"pass" => htmlspecialchars($_POST["add_password"]),
 					"extra" => htmlspecialchars($_POST["add_intro"]),
