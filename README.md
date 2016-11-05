@@ -1,6 +1,6 @@
 ## WebshellManager
 
-> 一款无聊的时候用PHP写的一句话WEB端管理工具 名字叫w8ay好了
+> 一款无聊的时候用PHP+Mysql写的一句话WEB端管理工具 名字叫w8ay好了 
 
 ## 介绍
 
@@ -8,6 +8,7 @@
 - 完成文件管理，支持对webshell中的文件进行增、删、改、查操作 可多选操作
 - 支持自定义命令
 - 完成多用户系统 注册 登陆
+
 
 ##自定义PHP命令
 
@@ -36,12 +37,14 @@ if($F==NULL){echo("ERROR:// Path Not Found Or No Permission!");}else{$tmparr = a
 		);
 ```
 
+
 ## 截图
 
 ![](https://cloud.githubusercontent.com/assets/18695984/20028030/ab8cc3cc-a360-11e6-999b-c3cdc93cdef5.jpg)
 ![](https://cloud.githubusercontent.com/assets/18695984/20028031/aed8235a-a360-11e6-8c86-635d0714eb51.jpg)
 ![](https://cloud.githubusercontent.com/assets/18695984/19856900/797cceb6-9fb6-11e6-85b3-762c3f3b77d0.jpg)
 ![](https://cloud.githubusercontent.com/assets/18695984/19856909/8126a13c-9fb6-11e6-9251-8db0424e4f2b.jpg)
+
 
 ## 安装
 
