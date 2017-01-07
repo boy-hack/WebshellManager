@@ -2,17 +2,27 @@
 
 /**
  * 基础函数库
+ * 自动加载函数
+ * 修复在敏感大小写系统下无法加载类的bug
  * @copyright (c) Emlog All Rights Reserved
  */
 function __autoload($class) {
-	$class = strtolower($class);
+	$classlower = strtolower($class);
+
 	if (file_exists(W8AY_ROOT . '/include/model/' . $class . '.php')) {
 		require_once(W8AY_ROOT . '/include/model/' . $class . '.php');
 	} elseif (file_exists(W8AY_ROOT . '/include/lib/' . $class . '.php')) {
 		require_once(W8AY_ROOT . '/include/lib/' . $class . '.php');
 	} elseif (file_exists(W8AY_ROOT . '/include/controller/' . $class . '.php')) {
 		require_once(W8AY_ROOT . '/include/controller/' . $class . '.php');
-	} else {
+	} elseif (file_exists(W8AY_ROOT . '/include/model/' . $classlower . '.php')) {
+		require_once(W8AY_ROOT . '/include/model/' . $classlower . '.php');
+	} elseif (file_exists(W8AY_ROOT . '/include/lib/' . $classlower . '.php')) {
+		require_once(W8AY_ROOT . '/include/lib/' . $classlower . '.php');
+	} elseif (file_exists(W8AY_ROOT . '/include/controller/' . $classlower . '.php')) {
+		require_once(W8AY_ROOT . '/include/controller/' . $classlower . '.php');
+	}  
+	else {
 		wMsg($class . '加载失败。');
 	}
 }
